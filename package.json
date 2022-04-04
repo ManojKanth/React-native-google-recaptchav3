@@ -1,0 +1,39 @@
+{
+  "name": "@manoj/react-native-google-recaptchav3",
+  "version": "0.0.1",
+  "description": "A React native component to use the invisible recaptcha v3 from Google",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3",
+    "react-test-renderer": "17.0.2",
+    "react": "17.0.2",
+    "react-native": "0.64",
+    "react-native-webview": "^11.17.2"
+  },
+  "author": "Manojkanth",
+  "license": "ISC",
+  "keywords": [
+    "react-native",
+    "react-native-recaptchaV3",
+    "react-native-invisible-recaptchaV3",
+    "react-component",
+    "react-native-component",
+    "react",
+    "react native",
+    "mobile",
+    "ios",
+    "android",
+    "ui"
+  ],
+  "bugs": {
+    "url": "https://github.com/ManojKanth/image-with-text-component/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}
