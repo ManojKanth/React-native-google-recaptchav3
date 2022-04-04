@@ -1,6 +1,6 @@
 {
   "name": "@manojkanth/react-native-google-recaptchav3",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A React native component to use the invisible recaptcha v3 from Google",
   "main": "index.js",
   "scripts": {

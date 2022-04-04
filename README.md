@@ -18,14 +18,14 @@ A react native component that use the invisible reCAPTCHA v3 from Google
 
 
 ```sh
-npm i npm i @manojkanth/react-native-google-recaptchav3
+npm i @manojkanth/react-native-google-recaptchav3
 npm i react-native-webview
 ```
 ## Example
 
 Import this module:
 ```sh
-import ReCaptchaComponent from '@manoj/React-native-google-recaptchaV3';
+import ReCaptchaComponent from '@manojkanth/react-native-google-recaptchav3';
 ```
 
 Use as a component:
