@@ -1,6 +1,7 @@
-import * as React from 'react';
-import {View, Platform} from 'react-native';
-import {WebView} from 'react-native-webview';
+import * as React from "react";
+import { View, Platform } from "react-native";
+import { WebView } from "react-native-webview";
+import PropTypes from "prop-types";
 
 const patchPostMessageJsCode = `(${String(function () {
   const originalPostMessage = window.postMessage;
@@ -8,7 +9,7 @@ const patchPostMessageJsCode = `(${String(function () {
     originalPostMessage(message, targetOrigin, transfer);
   };
   patchedPostMessage.toString = () =>
-    String(Object.hasOwnProperty).replace('hasOwnProperty', 'postMessage');
+    String(Object.hasOwnProperty).replace("hasOwnProperty", "postMessage");
   window.postMessage = patchedPostMessage;
 })})();`;
 
@@ -25,39 +26,39 @@ const getInvisibleRecaptchaContent = (siteKey, action) => {
     <script src="https://www.google.com/recaptcha/api.js?render=${siteKey}"></script>
     <script>window.grecaptcha.ready(function() { ${getExecutionFunction(
       siteKey,
-      action,
+      action
     )} });</script>
     </head></html>`;
 };
-
-refreshToken = () => {
-  if (Platform.OS === 'ios' && this._webViewRef) {
-    this._webViewRef.injectJavaScript(
-      getExecutionFunction(this.props.siteKey),
-    );
-  } else if (Platform.OS === 'android' && this._webViewRef) {
-    this._webViewRef.reload();
-  }
-}
 class ReCaptchaComponent extends React.Component {
   _webViewRef = React.createRef();
   constructor(props) {
     super(props);
   }
 
+  refreshToken = () => {
+    if (Platform.OS === "ios" && this._webViewRef) {
+      this._webViewRef.injectJavaScript(
+        getExecutionFunction(this.props.siteKey)
+      );
+    } else if (Platform.OS === "android" && this._webViewRef) {
+      this._webViewRef.reload();
+    }
+  };
+
   render() {
-    const {onTokenReceived, captchaDomain, siteKey} = this.props;
+    const { onTokenReceived, captchaDomain, siteKey } = this.props;
     return (
-      <View style={{flex: 0.0001, width: 0, height: 0}}>
+      <View style={{ flex: 0.0001, width: 0, height: 0 }}>
         <WebView
-          ref={ref => {
+          ref={(ref) => {
             this._webViewRef = ref;
           }}
           androidLayerType="software"
           javaScriptEnabled
-          originWhitelist={['*']}
+          originWhitelist={["*"]}
           automaticallyAdjustContentInsets
-          mixedContentMode={'always'}
+          mixedContentMode={"always"}
           injectedJavaScript={patchPostMessageJsCode}
           source={{
             html: getInvisibleRecaptchaContent(siteKey),
@@ -72,10 +73,10 @@ class ReCaptchaComponent extends React.Component {
   }
 }
 
-ReCaptchaComponent.propTypes= {
+ReCaptchaComponent.propTypes = {
   onTokenReceived: PropTypes.func,
   captchaDomain: PropTypes.string,
   siteKey: PropTypes.string,
-}
+};
 
 export default ReCaptchaComponent;
