@@ -18,7 +18,7 @@ A react native component that use the invisible reCAPTCHA v3 from Google
 
 
 ```sh
-npm i @manoj/React-native-google-recaptchaV3
+npm i npm i @manojkanth/react-native-google-recaptchav3
 npm i react-native-webview
 ```
 ## Example
@@ -37,6 +37,11 @@ Use as a component:
   onTokenReceived={(token) => Alert.alert('CAPTCHA', token)}/>
 ```
 
+
+To get new token:
+```sh
+this._recaptchRef.refreshToken()
+```
 
 
 | Prop | Type | Optional | Default | Description |

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View} from 'react-native';
+import {View, Platform} from 'react-native';
 import {WebView} from 'react-native-webview';
 
 const patchPostMessageJsCode = `(${String(function () {
@@ -30,6 +30,15 @@ const getInvisibleRecaptchaContent = (siteKey, action) => {
     </head></html>`;
 };
 
+refreshToken = () => {
+  if (Platform.OS === 'ios' && this._webViewRef) {
+    this._webViewRef.injectJavaScript(
+      getExecutionFunction(this.props.siteKey),
+    );
+  } else if (Platform.OS === 'android' && this._webViewRef) {
+    this._webViewRef.reload();
+  }
+}
 class ReCaptchaComponent extends React.Component {
   _webViewRef = React.createRef();
   constructor(props) {

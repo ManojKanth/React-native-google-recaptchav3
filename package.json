@@ -1,6 +1,6 @@
 {
-  "name": "@manoj/react-native-google-recaptchav3",
-  "version": "0.0.1",
+  "name": "@manojkanth/react-native-google-recaptchav3",
+  "version": "0.0.2",
   "description": "A React native component to use the invisible recaptcha v3 from Google",
   "main": "index.js",
   "scripts": {
@@ -34,6 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ManojKanth/React-native-google-recaptchav3"
-  }
+    "url": "git+https://github.com/ManojKanth/React-native-google-recaptchav3.git"
+  },
+  "homepage": "https://github.com/ManojKanth/React-native-google-recaptchav3#readme"
 }
