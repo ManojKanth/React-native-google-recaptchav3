@@ -13,7 +13,6 @@ const patchPostMessageJsCode = `(${String(function () {
 })})();`;
 
 const getExecutionFunction = (siteKey) => {
-  // console.log('RMK getExecutionFunction');
   return `window.grecaptcha.execute('${siteKey}', {action: 'form'}).then(
     function(args) {
       window.ReactNativeWebView.postMessage(args);
@@ -22,7 +21,6 @@ const getExecutionFunction = (siteKey) => {
 };
 
 const getInvisibleRecaptchaContent = (siteKey, action) => {
-  // console.log('RMK getInvisibleRecaptchaContent', siteKey);
   return `<!DOCTYPE html><html><head>
     <script src="https://www.google.com/recaptcha/api.js?render=${siteKey}"></script>
     <script>window.grecaptcha.ready(function() { ${getExecutionFunction(
@@ -57,7 +55,6 @@ class ReCaptchaComponent extends React.Component {
             baseUrl: captchaDomain,
           }}
           onMessage={(e: any) => {
-            console.log('onMessage', e);
             onTokenReceived(e.nativeEvent.data);
           }}
         />
